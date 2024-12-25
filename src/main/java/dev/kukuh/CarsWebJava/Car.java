@@ -1,22 +1,22 @@
 package dev.kukuh.CarsWebJava;
 
 public class Car {
-    private String name;
+    private long id;
     private double length;
     private double weight;
     private double velocity;
     private String color;
 
-    public Car(String name, double length, double weight, double velocity, String color) {
-        this.name = name;
+    public Car(long id, double length, double weight, double velocity, String color) {
+        this.id = id;
         this.length = length;
         this.weight = weight;
         this.velocity = velocity;
         this.color = color;
     }
 
-    public String getName() {
-        return name;
+    public long getId() {
+        return id;
     }
 
     public double getLength() {
