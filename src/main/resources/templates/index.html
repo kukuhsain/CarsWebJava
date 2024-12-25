@@ -7,6 +7,7 @@
     <title>Car Search</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
         integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
 </head>
 
 <body class="container">
@@ -28,10 +29,10 @@
         <input type="text" id="color" name="color" />
         <br />
 
-        <button type="submit">Search</button>
+        <button type="submit" class="pure-button pure-button-primary">Search</button>
     </form>
 
-    <h2>Results</h2>
+    <h1>Results</h1>
     <table border="1" class="pure-table">
         <thead>
             <tr>
