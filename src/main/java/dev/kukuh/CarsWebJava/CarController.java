@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CarController {
 
+    // @Autowired
+    // private CarService carService;
+
     @Autowired
-    private CarService carService;
+    private CarRepository carRepository;
 
     @GetMapping("/")
     public String showCars(
@@ -21,12 +24,15 @@ public class CarController {
             @RequestParam(required = false) Double velocity,
             @RequestParam(required = false) String color,
             Model model) {
-        List<Car> cars = carService.searchCars(length, weight, velocity, color);
+        // List<Car> cars = carService.searchCars(length, weight, velocity, color);
+        List<Car> cars = carRepository.searchCars(length, weight, velocity, color);
+
         model.addAttribute("cars", cars);
         model.addAttribute("length", length);
         model.addAttribute("weight", weight);
         model.addAttribute("velocity", velocity);
         model.addAttribute("color", color);
+        
         return "index";
     }
 }
