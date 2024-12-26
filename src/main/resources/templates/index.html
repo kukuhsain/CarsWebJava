@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Car Search</title>
+    <title>Cars Web</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
         integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
     <link th:href="@{/css/styles.css}" rel="stylesheet">
 </head>
 
 <body class="container">
-    <h1>Car Search</h1>
+    <h1>Cars Web</h1>
+    <h2>Search</h2>
     <form action="/" method="get" class="pure-form">
         <label for="length">Length:</label>
         <input type="number" step="0.01" id="length" name="length" />
@@ -32,7 +33,7 @@
         <button type="submit" class="pure-button pure-button-primary">Search</button>
     </form>
 
-    <h1>Results</h1>
+    <h2>Results</h2>
     <table border="1" class="pure-table">
         <thead>
             <tr>
