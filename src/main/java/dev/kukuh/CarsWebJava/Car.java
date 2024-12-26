@@ -9,15 +9,15 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Car {
     @XmlElement
-    public long id;
+    private long id;
     @XmlElement
-    public double length;
+    private double length;
     @XmlElement
-    public double weight;
+    private double weight;
     @XmlElement
-    public double velocity;
+    private double velocity;
     @XmlElement
-    public String color;
+    private String color;
 
     public Car() {
     }
@@ -30,27 +30,22 @@ public class Car {
         this.color = color;
     }
 
-    // @XmlElement
     public long getId() {
         return id;
     }
 
-    // @XmlElement
     public double getLength() {
         return length;
     }
 
-    // @XmlElement
     public double getWeight() {
         return weight;
     }
 
-    // @XmlElement
     public double getVelocity() {
         return velocity;
     }
 
-    // @XmlElement
     public String getColor() {
         return color;
     }

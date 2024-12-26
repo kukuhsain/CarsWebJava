@@ -15,10 +15,6 @@ import jakarta.xml.bind.Marshaller;
 
 @Controller
 public class CarController {
-
-    // @Autowired
-    // private CarService carService;
-
     @Autowired
     private CarRepository carRepository;
 
@@ -29,7 +25,6 @@ public class CarController {
             @RequestParam(required = false) Double velocity,
             @RequestParam(required = false) String color,
             Model model) {
-        // List<Car> cars = carService.searchCars(length, weight, velocity, color);
         List<Car> cars = carRepository.searchCars(length, weight, velocity, color);
 
         model.addAttribute("cars", cars);
@@ -48,40 +43,23 @@ public class CarController {
             @RequestParam(required = false) Double velocity,
             @RequestParam(required = false) String color,
             HttpServletResponse response) {
-
-        // System.out
-        //         .println("length: " + length + ", weight: " + weight + ", velocity: " + velocity + ", color: " + color);
-        // List<Car> cars = carService.searchCars(length, weight, velocity, color);
         List<Car> cars = carRepository.searchCars(length, weight, velocity, color);
-        System.out.println("cars: " + cars);
         response.setContentType("application/xml");
         response.setHeader("Content-Disposition", "attachment; filename=cars.xml");
 
         try {
             JAXBContext context = JAXBContext.newInstance(Car.class);
-            // System.out.println("context: " + context);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            // System.out.println("marshaller: " + marshaller);
-            // StringWriter writer = new StringWriter();
-            // for (Car car : cars) {
-            // marshaller.marshal(car, writer);
-            // }
-            // System.out.println("writer: " + writer.toString());
 
             // Write XML to response output stream
             OutputStream outputStream = response.getOutputStream();
             for (Car car : cars) {
-                // marshaller.marshal(car, writer);
                 marshaller.marshal(car, outputStream);
             }
             outputStream.flush();
-
-            // return writer.toString();
         } catch (Exception e) {
             throw new RuntimeException("Error converting to XML", e);
         }
-
-        // return carService.convertCarsToXml(cars);
     }
 }
