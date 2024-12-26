@@ -1,6 +1,7 @@
 package dev.kukuh.CarsWebJava;
 
 import java.io.OutputStream;
+import java.io.StringWriter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,15 +49,16 @@ public class CarController {
         response.setHeader("Content-Disposition", "attachment; filename=cars.xml");
 
         try {
-            JAXBContext context = JAXBContext.newInstance(Car.class);
+            JAXBContext context = JAXBContext.newInstance(CarListWrapper.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
+            CarListWrapper wrapper = new CarListWrapper();
+            wrapper.setCars(cars);
+
             // Write XML to response output stream
             OutputStream outputStream = response.getOutputStream();
-            for (Car car : cars) {
-                marshaller.marshal(car, outputStream);
-            }
+            marshaller.marshal(wrapper, outputStream);
             outputStream.flush();
         } catch (Exception e) {
             throw new RuntimeException("Error converting to XML", e);
