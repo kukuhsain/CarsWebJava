@@ -40,7 +40,7 @@ public class CarRepository {
             sql.append(" AND velocity = ?");
             params.add(velocity);
         }
-        if (color != null) {
+        if (color != null && !color.isEmpty()) {
             sql.append(" AND color = ?");
             params.add(color);
         }

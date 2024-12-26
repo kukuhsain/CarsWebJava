@@ -52,7 +52,11 @@
         </tbody>
     </table>
 
-    <a th:href="'/download' + ${length != null ? '?length=' + length : ''} + ${weight != null ? '?weight=' + weight : ''} + ${velocity != null ? '?velocity=' + velocity : ''} + ${color != null ? '?color=' + color : ''}"
+    <a th:href="'/download?' 
+        + (${length != null ? ('length=' + length) : ''}) 
+        + (${weight != null ? ('&weight=' + weight) : ''}) 
+        + (${velocity != null ? ('&velocity=' + velocity) : ''}) 
+        + (${color != null ? ('&color=' + color) : ''})" th:disabled="${cars.isEmpty()}"
         class="pure-button pure-button-primary">
         Download as XML
     </a>
