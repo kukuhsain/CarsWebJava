@@ -72,7 +72,7 @@ class CarRepositoryTest {
     @Test
     void testSearchCars_withPartialCriteria() {
         // Act
-        List<Car> results = carRepository.searchCars(null, 1200.0, null, null);
+        List<Car> results = carRepository.searchCars(null, 1200.0, null, "red");
 
         // Assert
         assertThat(results).hasSize(1);
