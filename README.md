@@ -20,7 +20,7 @@ A Spring Boot web application that allows users to search for cars based on vari
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/CarsWebJava.git
+git clone https://github.com/kukuhsain/CarsWebJava.git
 cd CarsWebJava
 ```
 
@@ -47,11 +47,3 @@ This will start the application on `http://localhost:8080`. You can access the a
 ## Database
 
 The project uses **H2 Database** as an in-memory database. The data is populated in the database on startup. You can change the database configuration in `application.properties` if needed.
-
-## Running Tests
-
-To run the tests for the project, use the following command:
-
-```bash
-./gradlew test
-```
