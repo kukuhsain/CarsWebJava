@@ -3,6 +3,8 @@ package dev.kukuh.CarsWebJava;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -23,17 +25,26 @@ public class CarRepository {
     };
 
     public List<Car> searchCars(Double length, Double weight, Double velocity, String color) {
-        String sql = "SELECT * FROM car WHERE 1=1";
+        StringBuilder sql = new StringBuilder("SELECT * FROM car WHERE 1=1");
+        List<Object> params = new ArrayList<>();
 
-        if (length != null)
-            sql += " AND length = ?";
-        if (weight != null)
-            sql += " AND weight = ?";
-        if (velocity != null)
-            sql += " AND velocity = ?";
-        if (color != null)
-            sql += " AND color LIKE ?";
+        if (length != null) {
+            sql.append(" AND length = ?");
+            params.add(length);
+        }
+        if (weight != null) {
+            sql.append(" AND weight = ?");
+            params.add(weight);
+        }
+        if (velocity != null) {
+            sql.append(" AND velocity = ?");
+            params.add(velocity);
+        }
+        if (color != null) {
+            sql.append(" AND color = ?");
+            params.add(color);
+        }
 
-        return jdbcTemplate.query(sql, rowMapper);
+        return jdbcTemplate.query(sql.toString(), rowMapper, params.toArray());
     }
 }
