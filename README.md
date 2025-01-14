@@ -2,6 +2,10 @@
 
 A Spring Boot web application that allows users to search for cars based on various criteria (length, weight, velocity, color) and download the results in XML format. The application is built using Java 21, Spring Boot, H2 database, and Thymeleaf for the frontend.
 
+## Demo
+
+You can try out the application at [https://carswebjava.onrender.com/](https://carswebjava.onrender.com/). The application is hosted on Render, a cloud platform for static websites, using their Free plan. So, you might need to wait a few minutes for the application to start, after the first time you visit it.
+
 ## Features
 - **Search for cars** based on criteria (length, weight, velocity, color).
 - **Download results** in XML format.
