@@ -6,7 +6,7 @@ A Spring Boot web application that allows users to search for cars based on vari
 
 You can try out the application at [https://carswebjava.onrender.com/](https://carswebjava.onrender.com/). The application is hosted on Render using their Free plan. So, you might need to wait a few minutes for the application to start, after the first time you visit it.
 
-<video src="https://pub.setopic.com/carswebjava-demo-video.mp4" controls width="640" />
+<video src="https://pub.setopic.com/carswebjava-demo-video.mp4" controls width="640"></video>
 
 ## Features
 - **Search for cars** based on criteria (length, weight, velocity, color).
